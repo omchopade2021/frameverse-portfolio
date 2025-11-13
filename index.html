@@ -1,147 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FRAME_VERSE – Professional Videography Studio</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FRAME_VERSE – Cinematic Videography Studio</title>
 <style>
-  /* ==== NEW PROFESSIONAL THEME (Deep Black + Royal Gold + Teal Neon) ==== */
-  body {
-    margin: 0;
-    padding: 0;
-    background: #030303;
-    color: #f2f2f2;
-    font-family: "Poppins", sans-serif;
-  }
+/* ================== FULL FEATURED STUDIO LAYOUT ================== */
+:root{
+  --bg:#040405; --panel:rgba(14,14,14,0.7); --muted:#cfd6d8;
+  --gold:#dfb76b; --teal:#0fe0d8; --accent:#9a58ff; --glass:rgba(255,255,255,0.03);
+  --glass-2:rgba(255,255,255,0.02);
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#050506 0%, #020203 80%);color:#eef2f3;font-family:'Poppins',system-ui,Arial;overflow-x:hidden}
+a{color:var(--teal);text-decoration:none}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
 
-  :root {
-    --gold: #e5b567;
-    --gold-soft: #f4dca1;
-    --teal: #1de3d3;
-    --teal-glow: rgba(29, 227, 211, 0.35);
-    --dark: #0a0a0a;
-    --card-bg: linear-gradient(135deg, #111, #000);
-    --hero-gradient: linear-gradient(135deg, #0a0a0a, #111, #000);
-  }
+/* ---------- Full-screen hero with video background & logo intro ---------- */
+.hero-wrap{position:relative;height:78vh;min-height:520px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-video{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;filter:contrast(85%) saturate(110%) brightness(85%);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,1,1,0.15),rgba(1,1,1,0.55));}
+.brand-pill{position:absolute;top:28px;left:28px;background:var(--glass);padding:8px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px)}
+.logo-wrap{display:flex;align-items:center;gap:14px}
+.logo-mark{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;transform:scale(1);animation:logoPop .9s ease both}
+@keyframes logoPop{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+.logo-text{font-size:18px;font-weight:700;letter-spacing:1px}
+.hero-content{position:relative;z-index:5;text-align:center;padding:0 20px}
+.h1{font-size:56px;line-height:1; margin:0 0 12px;color:var(--gold);text-shadow:0 18px 40px rgba(0,0,0,0.6)}
+.h-sub{font-size:18px;color:var(--muted);margin-bottom:24px}
+.cta-row{display:flex;gap:14px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--teal));color:#011;box-shadow:0 10px 30px rgba(15,10,40,0.6)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
-  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 1.4s ease forwards; }
-  @keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
+/* floating book button */
+.book-btn{position:fixed;right:22px;bottom:26px;z-index:999;background:linear-gradient(135deg,var(--teal),var(--accent));color:#021;padding:14px 16px;border-radius:14px;box-shadow:0 10px 30px rgba(18,20,25,0.6);display:flex;align-items:center;gap:10px}
+.book-btn a{color:inherit;font-weight:800}
 
-  /* HERO */
-  .hero {
-    text-align: center;
-    padding: 120px 20px;
-    background: var(--hero-gradient);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  .hero h1 {
-    font-size: 70px;
-    margin: 0;
-    font-weight: 800;
-    color: var(--gold);
-    text-shadow: 0 0 25px rgba(229,181,103,0.4);
-  }
-  .hero p {
-    font-size: 24px;
-    margin-top: 12px;
-    opacity: .85;
-  }
+/* ---------- Packages / Pricing ---------- */
+.section{padding:54px 0}
+.section .heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.section h2{margin:0;color:var(--gold);text-transform:uppercase}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:var(--panel);border-radius:12px;padding:20px;position:relative;overflow:hidden;border:1px solid var(--glass-2);transition:transform .32s ease,box-shadow .32s}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(5,5,10,0.6)}
+.card .ribbon{position:absolute;right:-70px;top:18px;width:220px;height:60px;background:linear-gradient(90deg,var(--accent),var(--teal));opacity:0.08;transform:rotate(22deg);filter:blur(10px)}
+.card h3{margin:0;font-size:18px}
+.price{font-weight:900;color:var(--gold);font-size:22px;margin-top:8px}
+.card ul{margin:12px 0 0 18px;color:#d6d6d6}
 
-  /* SECTIONS */
-  .section {
-    padding: 70px 20px;
-    max-width: 1200px;
-    margin: auto;
-  }
+/* ---------- Gallery / Reels (video thumbnails) ---------- */
+.reels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.reel{position:relative;border-radius:10px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,0.03)}
+.reel img{width:100%;height:160px;object-fit:cover;display:block}
+.reel .meta{padding:10px}
+.reel .meta h4{margin:0;font-size:16px}
 
-  .section h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    border-left: 6px solid var(--teal);
-    padding-left: 14px;
-    text-transform: uppercase;
-    color: var(--gold-soft);
-  }
+/* lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(2,2,2,0.95);display:none;align-items:center;justify-content:center;padding:20px;z-index:10000}
+.lightbox iframe{width:min(1100px,95%);height:60vh}
+.lightbox.show{display:flex}
 
-  /* SERVICE LIST */
-  .service-item {
-    background: var(--card-bg);
-    padding: 18px 25px;
-    margin: 12px 0;
-    color: var(--gold-soft);
-    border-radius: 12px;
-    font-size: 20px;
-    border: 1px solid rgba(255,255,255,0.07);
-    transition: .3s;
-  }
-  .service-item:hover {
-    border-color: var(--gold);
-    transform: translateY(-6px);
-    box-shadow: 0 0 22px var(--teal-glow);
-  }
+/* ---------- Testimonials slider ---------- */
+.testi{display:flex;gap:14px;overflow:hidden}
+.testi-item{min-width:100%;padding:22px;background:var(--panel);border-radius:12px;border:1px solid var(--glass-2)}
+.testi-viewport{position:relative}
+.testi-controls{display:flex;gap:10px;justify-content:center;margin-top:12px}
 
-  /* PHOTO GRID */
-  .photo-grid {
-    display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-  .photo-card {
-    border-radius: 14px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 0 30px rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: .3s;
-  }
-  .photo-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 35px var(--teal-glow);
-  }
-  .photo-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+/* ---------- Brand logos ---------- */
+.brands{display:flex;align-items:center;gap:20px;justify-content:center;flex-wrap:wrap;padding:18px}
+.brand img{height:36px;opacity:0.85}
 
-  /* CONTACT */
-  .contact-box {
-    background: #0d0d0d;
-    padding: 35px;
-    border-left: 6px solid var(--gold);
-    border-radius: 14px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.08);
-    font-size: 20px;
-    line-height: 1.8;
-  }
-  .contact-box a { color: var(--teal); text-decoration:none; }
-  .contact-box a:hover { text-decoration: underline; }
+/* ---------- Before / After slider ---------- */
+.ba{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ba .frame{position:relative;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.ba img{display:block;width:100%;height:320px;object-fit:cover}
+.ba .handle{position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.1));transform:translateX(-50%)}
+.ba input[type=range]{width:100%;margin-top:12px}
+
+/* ---------- FAQ accordion ---------- */
+.faq .q{background:var(--panel);padding:14px;border-radius:10px;margin-bottom:10px;border:1px solid var(--glass-2)}
+.q h4{margin:0;cursor:pointer}
+.q p{margin:8px 0 0 0;color:#d5d5d5;display:none}
+
+/* ---------- Contact form ---------- */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form input,.form textarea{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:var(--text)}
+.form textarea{grid-column:1/ -1;height:120px}
+.form .submit{grid-column:1/ -1;padding:12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),var(--teal));color:#021;font-weight:800}
+@media(max-width:820px){.form{grid-template-columns:1fr}.h1{font-size:36px}.hero-wrap{height:56vh}}
+
+/* subtle particle canvas */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:-1}
+
+.footer{padding:28px 20px;text-align:center;color:rgba(255,255,255,0.6)}
+.footer .links a{margin:0 10px;color:rgba(255,255,255,0.9)}
 
 </style>
 </head>
-
 <body>
-  <!-- HERO -->
-  <div class="hero fade-in">
-    <h1>FRAME_VERSE</h1>
-    <p>Project Promotion Video • Packages • Shoot • Edit • Reels</p>
-  </div>
 
-  
-    
+<!-- background video - replace src with your own cinematic loop if desired -->
+<div class="hero-wrap">
+  <video class="hero-video" autoplay muted loop playsinline src="https://cdn.pixabay.com/vimeo/374091906/hero-1800.mp4?width=1280&hash=8e5a0e28"></video>
+  <div class="hero-overlay"></div>
+  <div class="brand-pill container"><div class="logo-wrap"><div class="logo-mark">FV</div><div class="logo-text">FRAME_VERSE</div></div></div>
+  <div class="hero-content container">
+    <h1 class="h1">FRAME_VERSE</h1>
+    <div class="h-sub">Project Promotion Video • Packages • Shoot • Edit • Reels</div>
+    <div class="cta-row">
+      <button class="btn btn-primary" id="playShow">Watch Reel</button>
+      <a href="mailto:omchopade2021@gmail" class="btn btn-ghost">Email Us</a>
+    </div>
   </div>
+</div>
 
-  
-  </div>
+<!-- floating WhatsApp/book button -->
+<div class="book-btn" id="bookBtn"><a href="https://wa.me/917038315321?text=Hi%20Frame_Verse!%20I%20want%20to%20book%20a%20shoot" target="_blank">Book Now</a></div>
 
-  <!-- CONTACT -->
-  <div class="section fade-in contact-box">
-    <h2>Contact</h2>
-    <p><strong>Phone:</strong> 7038315321</p>
-    <p><strong>Email:</strong> omchopade2021@gmail</p>
-    <p><strong>Location:</strong> Pune, Maharashtra</p>
-    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/frame_verse2021" target="_blank">@frame_verse2021</a></p>
-  </div>
+<main class="container">
 
+  <!-- PACKAGES -->
+  <section class="section" id="packages">
+    <div class="heading"><h2>Packages</h2></div>
+    <div class="pack-grid">
+      <div class="card">
+        <div class="ribbon"></div>
+        <h3>Normal Package</h3>
+        <div class="price">₹9,999</div>
+        <ul><li>10 Reel (25-30sec)</li><li>5 Posters/Banners</li><li>Shoot + Edit</li><li>3-4 Shoot Visits</li></ul>
+      </div>
+      <div class="card">
+        <div class="ribbon"></div>
+        <h3>Premium Package</h3>
+        <div class="price">₹14,999</div>
+        <ul><li>15 Reel (25-30sec)</li><li>7 Posters/Banners</li><li>Shoot + Edit</li><li>6-7 Shoot Visits</li></ul>
+      </div>
+      <div class="card">
+        <div class="ribbon"></div>
+        <h3>VIP Package</h3>
+        <div class="price">₹19,999</div>
+        <ul><li>20 Reel (25-30sec)</li><li>1 VIP Cinematic Reel (35-59sec)</li><li>10 Posters/Banners</li><li>Shoot + Edit</li><li>10-11 Shoot Visits</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- REELS GALLERY -->
+  <!-- <section class="section">
+    <h2>Reels & Showreels</h2>
+    <div class="reels-grid" id="reels">
+      <div class="reel" data-src="https://www.youtube.com/embed/IUN664s7N-c"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="reel"/><div class="meta"><h4>Event Highlight Reel</h4></div></div>
+      <div class="reel" data-src="https://www.youtube.com/embed/VIDEO_ID_2"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80" alt="reel"/><div class="meta"><h4>Wedding Cinematic</h4></div></div>
+      <div class="reel" data-src="https://www.youtube.com/embed/VIDEO_ID_3"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" alt="reel"/><div class="meta"><h4>Product & Jewellery Reel</h4></div></div>
+      <div class="reel" data-src="https://www.youtube.com/embed/VIDEO_ID_4"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80" alt="reel"/><div class="meta"><h4>Interior Walkthrough</h4></div></div>
+    </div>
+  </section> -->
+
+  <!-- CLIENT BRANDS -->
+  <!-- <section class="section">
+    <h2>Brands & Clients</h2>
+    <div class="brands">
+      <img src="https://dummyimage.com/140x40/111/fff&text=Brand+A" alt="b1"/>
+      <img src="https://dummyimage.com/140x40/111/fff&text=Brand+B" alt="b2"/>
+      <img src="https://dummyimage.com/140x40/111/fff&text=Brand+C" alt="b3"/>
+      <img src="https://dummyimage.com/140x40/111/fff&text=Brand+D" alt="b4"/>
+    </div>
+  </section> -->
+
+  <!-- BEFORE / AFTER COLOR GRADING -->
+  <!-- <section class="section">
+    <h2>Colour Grading: Before / After</h2>
+    <div class="ba">
+      <div class="frame" style="flex:1;">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80" id="ba-after" alt="after" />
+        <div class="handle" id="ba-handle"></div>
+      </div>
+      <div style="flex:1;padding-left:12px;">
+        <input id="ba-range" type="range" min="0" max="100" value="50" />
+        <p style="color:#cfcfcf;margin-top:8px">Drag to compare graded (left) vs raw (right)</p>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- TESTIMONIALS -->
+  <!-- <section class="section">
+    <h2>Client Testimonials</h2>
+    <div class="testi-viewport">
+      <div class="testi" id="testiTrack">
+        <div class="testi-item card"><strong>"Absolutely stellar work!"</strong><p style="margin-top:8px;color:#d6d6d6">— Raj, Event Manager</p></div>
+        <div class="testi-item card"><strong>"Cinematic & emotional delivery"</strong><p style="margin-top:8px;color:#d6d6d6">— Neha, Bride</p></div>
+        <div class="testi-item card"><strong>"Perfect for product launches"</strong><p style="margin-top:8px;color:#d6d6d6">— Arjun, Marketing Head</p></div>
+      </div>
+    </div>
+    <div class="testi-controls"><button id="prevT">Prev</button><button id="nextT">Next</button></div>
+  </section> -->
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2>FAQ</h2>
+    <div class="faq">
+      <div class="q"><h4>How long to deliver a reel?</h4><p>Standard delivery is 5–7 business days; rush options available.</p></div>
+      <div class="q"><h4>What equipment do you use?</h4><p>We use cinema-grade cameras, gimbals, drones, and pro audio rigs.</p></div>
+      <div class="q"><h4>Can you travel for shoots?</h4><p>Yes — travel & accommodation are billed separately if outside Pune.</p></div>
+    </div>
+  </section>
+
+  <!-- VIDEO TESTIMONIALS (light embeds) -->
+  <!-- <section class="section">
+    <h2>Video Testimonials</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+      <div class="card"><iframe width="100%" height="180" src="https://www.youtube.com/embed/IUN664s7N-c" frameborder="0" allowfullscreen></iframe></div>
+      <div class="card"><iframe width="100%" height="180" src="https://www.youtube.com/embed/24aQ3mK5z5c" frameborder="0" allowfullscreen></iframe></div>
+    </div>
+  </section> -->
+
+  <!-- CONTACT FORM -->
+  <section class="section" id="contact">
+    <h2>Contact & Book</h2>
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start">
+      <form class="form card" onsubmit="return submitForm(event)">
+        <input name="name" placeholder="Full name" required />
+        <input name="phone" placeholder="Phone / WhatsApp" required />
+        <input name="email" placeholder="Email" />
+        <input name="service" placeholder="Service (e.g., Wedding Reel)" />
+        <textarea name="message" placeholder="Brief details"></textarea>
+        <button class="submit">Send Inquiry</button>
+      </form>
+
+      <div class="contact-box">
+        <h3>Quick Contact</h3>
+        <p><strong>Phone:</strong> 7038315321</p>
+        <p><strong>Email:</strong> omchopade2021@gmail</p>
+        <p><strong>Location:</strong> Pune, Maharashtra</p>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/frame_verse2021" target="_blank">@frame_verse2021</a></p>
+        <div style="margin-top:12px"><a class="btn btn-primary" href="https://wa.me/917038315321?text=Hi%20Frame_Verse!%20I%20want%20to%20book%20a%20shoot" target="_blank">Send Message on WhatsApp</a></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- lightbox for reels -->
+<div class="lightbox" id="lightbox"><div id="lightboxInner"></div></div>
+
+<!-- particles canvas -->
+<canvas id="particles"></canvas>
+
+<footer class="footer">
+  <div class="links"><a href="#">Home</a><a href="#packages">Packages</a><a href="#contact">Contact</a><a href="https://www.instagram.com/frame_verse2021" target="_blank">Instagram</a></div>
+  <div class="copyright">© 2025 FRAME_VERSE. All rights reserved.</div>
+</footer>
+
+<script>
+/* ============= Lightweight interactive JS ============= */
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightInner = document.getElementById('lightboxInner');
+document.querySelectorAll('.reel').forEach(r=> r.addEventListener('click',()=>{
+  const src = r.getAttribute('data-src');
+  lightInner.innerHTML = `<iframe src="${src}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" style="width:90vw;height:70vh"></iframe>`;
+  lightbox.classList.add('show');
+}));
+lightbox.addEventListener('click',()=>{ lightbox.classList.remove('show'); lightInner.innerHTML=''; });
+
+// Testimonials slider simple
+let ti=0; const track = document.getElementById('testiTrack');
+function showTesti(i){ track.style.transform = `translateX(-${i*100}%)`; }
+document.getElementById('nextT').onclick = ()=>{ ti=(ti+1)%3; showTesti(ti); }
+document.getElementById('prevT').onclick = ()=>{ ti=(ti-1+3)%3; showTesti(ti); }
+setInterval(()=>{ ti=(ti+1)%3; showTesti(ti); },5000);
+
+// FAQ accordion
+document.querySelectorAll('.faq .q').forEach(q=>{ q.querySelector('h4').addEventListener('click',()=>{ const p=q.querySelector('p'); p.style.display = p.style.display==='block'? 'none':'block'; }); });
+
+// Before/After slider (simple mask) - we overlay 'after' image and clip with range
+const baAfter = document.getElementById('ba-after'); const baRange = document.getElementById('ba-range');
+function updateBA(){ const val = baRange.value; baAfter.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0% 100%)`; document.getElementById('ba-handle').style.left = val + '%'; }
+baRange.addEventListener('input', updateBA); updateBA();
+
+// submit form (mailto fallback)
+function submitForm(e){ e.preventDefault(); const f=new FormData(e.target); const name=f.get('name'); const phone=f.get('phone'); const service=f.get('service'); const msg=f.get('message'); const body=encodeURIComponent(`Name: ${name}
+Phone: ${phone}
+Service: ${service}
+Message: ${msg}`); window.location.href = `mailto:omchopade2021@gmail?subject=${encodeURIComponent('New Booking Inquiry')}&body=${body}`; return false; }
+
+// particles (canvas) subtle floating dots
+const canvas = document.getElementById('particles'); const ctx = canvas.getContext('2d'); let W, H, particles=[];
+function resize(){ W=canvas.width = innerWidth; H=canvas.height = innerHeight; }
+window.addEventListener('resize',resize); resize();
+function initParticles(){ particles=[]; for(let i=0;i<60;i++){ particles.push({x:Math.random()*W,y:Math.random()*H*0.6, r:1+Math.random()*2, vx:(Math.random()-0.5)*0.2, vy:(Math.random()-0.1)*0.2, hue: Math.random()*360 }); } }
+initParticles();
+function draw(){ ctx.clearRect(0,0,W,H); particles.forEach(p=>{ p.x += p.vx; p.y += p.vy; if(p.x<0) p.x = W; if(p.x>W) p.x=0; if(p.y<0) p.y=H; if(p.y>H) p.y=0; ctx.beginPath(); ctx.fillStyle = `hsla(${p.hue},70%,65%,0.08)`; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); }); requestAnimationFrame(draw); }
+draw();
+
+// play show button opens demo reel in lightbox
+// document.getElementById('playShow').addEventListener('click',()=>{ document.querySelectorAll('.reel')[0].click(); });
+document.getElementById('playShow').addEventListener('click',()=>{ window.open('https://www.instagram.com/frame_verse2021', '_blank'); });
+
+
+// Smooth parallax for hero elements
+window.addEventListener('scroll',()=>{ const s=window.scrollY; document.querySelector('.hero-content').style.transform = `translateY(${s*0.08}px)`; document.querySelectorAll('.card').forEach((c,i)=> c.style.transform = `translateY(${Math.sin((s+i*60)/300)*6}px)`); });
+
+</script>
 </body>
 </html>
