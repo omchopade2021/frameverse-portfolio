@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frame_verse – Photography Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #090909;
+      color: #ffffff;
+      font-family: "Poppins", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Combined Royal Gold + Neon Purple-Blue Theme */
+    :root {
+      --gold: #ffcc33;
+      --gold-light: #ffe27a;
+      --purple: #8a2be2;
+      --blue: #1e90ff;
+      --gradient: linear-gradient(135deg, #8a2be2, #1e90ff);
+      --dark-gradient: linear-gradient(135deg, #000, #111, #1a1a1a);
+    }
+
+    /* Fade animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 120px 20px;
+      background: var(--gradient);
+      color: #fff;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 70px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .header p {
+      margin-top: 12px;
+      font-size: 26px;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* Sections */
+    .section {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 34px;
+      margin-bottom: 30px;
+      padding-left: 12px;
+      border-left: 6px solid var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: #111;
+      padding: 25px;
+      border-radius: 14px;
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--gold-light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      background: linear-gradient(145deg, #141414, #0b0b0b);
+      transition: 0.4s ease;
+      box-shadow: 0 0 10px rgba(255, 204, 51, 0.15);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(255, 204, 51, 0.4), 0 0 20px rgba(138, 43, 226, 0.3);
+      border-color: var(--gold);
+    }
+
+    /* Contact Box */
+    .contact-box {
+      background: #111;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+      font-size: 20px;
+      line-height: 1.8;
+      border-left: 6px solid var(--purple);
+    }
+
+    .contact-box a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* QR Section */
+    .qr {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .qr-img {
+      width: 270px;
+      height: 270px;
+      padding: 18px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.2);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="header fade-in">
+    <h1>FRAME_VERSE</h1>
+    <p>By Om Chopade • Premium Photography</p>
+  </div>
+
+  <div class="section fade-in">
+    <h2>Services Offered</h2>
+    <div class="services-grid">
+      <div class="service-card">Event Coverage</div>
+      <div class="service-card">Real Estate Showcasing</div>
+      <div class="service-card">Portfolio & Model Shoots</div>
+      <div class="service-card">Product Photography</div>
+      <div class="service-card">Account Handling & Editing Support</div>
+    </div>
+  </div>
+
+  <div class="section fade-in contact-box">
+    <h2>Contact Details</h2>
+    <p><strong>Phone:</strong> 7038315321</p>
+    <p><strong>Email:</strong> omchopade2021@gmail</p>
+    <p><strong>Location:</strong> Pune, Maharashtra</p>
+    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/frame_verse2021" target="_blank">@frame_verse2021</a></p>
+  </div>
+
+  <div class="section fade-in qr">
+    <h2>Scan to View Portfolio</h2>
+    <img class="qr-img" src="Frame_verse_QR.png" alt="QR Code" />
+  </div>
+</body>
+</html>
